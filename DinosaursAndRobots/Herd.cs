@@ -19,8 +19,8 @@ namespace DinosaursAndRobots
         public void MakeHerd()
         {
             Dinosaur tRex = new Dinosaur("T-Rex", 150, 80, 50);
-            Dinosaur raptor = new Dinosaur("Raptor", 100, 150, 20);
-            Dinosaur longNeck = new Dinosaur("Long Neck", 500, 100, 100);
+            Dinosaur raptor = new Dinosaur("Raptor", 100, 150, 30);
+            Dinosaur longNeck = new Dinosaur("Long Neck", 300, 100, 100);
             dinosaurList.Add(tRex);
             dinosaurList.Add(raptor);
             dinosaurList.Add(longNeck);
@@ -30,7 +30,7 @@ namespace DinosaursAndRobots
         {
             foreach(Dinosaur dinosaur in dinosaurList)
             {
-                if (dinosaur.health == 0)
+                if (dinosaur.health <= 0)
                 {
                     RemoveDeadDinosaur(dinosaur);
                     break;
@@ -40,7 +40,7 @@ namespace DinosaursAndRobots
             {
                 return 0;
             }
-            return 1;
+            return dinosaurList.Count();
         }
 
         public void RemoveDeadDinosaur(Dinosaur dinosaur)

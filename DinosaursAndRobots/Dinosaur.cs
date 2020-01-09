@@ -26,7 +26,7 @@ namespace DinosaursAndRobots
             Console.WriteLine("Choose " + type + "'s target: ");
             foreach (Robot robot in robotFleet.robotList)
             {
-                Console.WriteLine(robot.name);
+                Console.WriteLine(robot.name + " (" + robot.health + " HP)");
             }
 
             string target = Console.ReadLine();
@@ -44,7 +44,15 @@ namespace DinosaursAndRobots
         public void DinoAttack(Robot robot)
         {
             Random random = new Random();
-            int chanceForHit = random.Next(1, 10);
+            int chanceForHit;
+            if (type == "Long Neck")
+            {
+                chanceForHit = random.Next(1, 4);
+            }
+            else
+            {
+                chanceForHit = random.Next(1, 6);
+            }
             if(chanceForHit == 1)
             {
                 Console.WriteLine(type + " missed their attack!");
@@ -53,6 +61,10 @@ namespace DinosaursAndRobots
             {
                 robot.health -= attackPower;
                 Console.WriteLine(type + " attacked " + robot.name + " for " + attackPower + " damage.");
+                if(robot.health < 0)
+                {
+                    robot.health = 0;
+                }
                 Console.WriteLine(robot.name + " has " + robot.health + " health left.");
             }
         }

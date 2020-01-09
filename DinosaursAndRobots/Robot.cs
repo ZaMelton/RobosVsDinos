@@ -27,7 +27,7 @@ namespace DinosaursAndRobots
             Console.WriteLine("Choose " + name + "'s target: ");
             foreach (Dinosaur dinosaur in dinosaurHerd.dinosaurList)
             {
-                Console.WriteLine(dinosaur.type);
+                Console.WriteLine(dinosaur.type + " (" + dinosaur.health + " HP)");
             }
 
             string target = Console.ReadLine();
@@ -44,7 +44,7 @@ namespace DinosaursAndRobots
         public void RobotAttack(Dinosaur dinosaur)
         {
             Random random = new Random();
-            int chanceForHit = random.Next(1, 10);
+            int chanceForHit = random.Next(1, 11);
 
             if(chanceForHit == 1)
             {
@@ -54,6 +54,11 @@ namespace DinosaursAndRobots
             {
                 dinosaur.health -= attackPower;
                 Console.WriteLine(name + " attacked " + dinosaur.type + " for " + attackPower + " damage.");
+
+                if(dinosaur.health < 0)
+                {
+                    dinosaur.health = 0;
+                }
                 Console.WriteLine(dinosaur.type + " has " + dinosaur.health + " health left.");
             }
         }

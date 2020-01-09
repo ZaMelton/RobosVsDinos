@@ -21,9 +21,9 @@ namespace DinosaursAndRobots
 
         public void MakeFleet()
         {
-            Robot walle = new Robot("WALL-E", 100, 10, 5);
-            Robot pathfinder = new Robot("Pathfinder", 100, 10, 5);
-            Robot ig11 = new Robot("IG-11", 100, 10, 5);
+            Robot walle = new Robot("WALL-E", 100, 10, 50);
+            Robot pathfinder = new Robot("Pathfinder", 100, 10, 80);
+            Robot ig11 = new Robot("IG-11", 100, 10, 75);
             robotList.Add(walle);
             robotList.Add(pathfinder);
             robotList.Add(ig11);
@@ -43,7 +43,7 @@ namespace DinosaursAndRobots
             {
                 return 0;
             }
-            return 1;
+            return robotList.Count();
         }
 
         public void RemoveDeadRobot(Robot robot)
