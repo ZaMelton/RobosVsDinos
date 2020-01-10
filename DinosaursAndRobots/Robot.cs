@@ -22,24 +22,36 @@ namespace DinosaursAndRobots
             this.attackPower = attackPower;
         }
 
-        public void ChooseTarget(Herd dinosaurHerd)
+        public int ChooseTarget(Herd dinosaurHerd)
         {
             Console.WriteLine("Choose " + name + "'s target: ");
+            int targetNum = 1;
             foreach (Dinosaur dinosaur in dinosaurHerd.dinosaurList)
             {
-                Console.WriteLine(dinosaur.type + " (" + dinosaur.health + " HP)");
+                Console.WriteLine(targetNum + ") " + dinosaur.type + " (" + dinosaur.health + " HP)");
+                targetNum++;
             }
 
-            string target = Console.ReadLine();
+            bool validInput = int.TryParse(Console.ReadLine(), out int targetChoice);
 
-            foreach (Dinosaur dinosaur in dinosaurHerd.dinosaurList)
+            while (!(validInput))
             {
-                if (target.ToLower() == dinosaur.type.ToLower())
-                {
-                    RobotAttack(dinosaur);
-                    break;
-                }
+                Console.WriteLine("Invalid target, try again..\nPlease enter a number according to target.");
+                validInput = int.TryParse(Console.ReadLine(), out targetChoice);
             }
+
+            return targetChoice;
+
+            //string target = Console.ReadLine();
+
+            //foreach (Dinosaur dinosaur in dinosaurHerd.dinosaurList)
+            //{
+            //    if (target.ToLower() == dinosaur.type.ToLower())
+            //    {
+            //        RobotAttack(dinosaur);
+            //        break;
+            //    }
+            //}
         }
         public void RobotAttack(Dinosaur dinosaur)
         {

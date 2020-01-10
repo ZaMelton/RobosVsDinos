@@ -10,8 +10,6 @@ namespace DinosaursAndRobots
     {
         
         public List<Robot> robotList;
-        int totalHealth;
-        Weapon weapon;
 
         public Fleet()
         {

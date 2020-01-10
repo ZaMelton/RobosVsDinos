@@ -12,6 +12,7 @@ namespace DinosaursAndRobots
         public int health;
         public int stamina;
         public int attackPower;
+        public AttackType attackType;
 
         public Dinosaur(string type, int health, int stamina, int attackPower)
         {
@@ -21,24 +22,36 @@ namespace DinosaursAndRobots
             this.attackPower = attackPower;
         }
 
-        public void ChooseTarget(Fleet robotFleet)
+        public int ChooseTarget(Fleet robotFleet)
         {
             Console.WriteLine("Choose " + type + "'s target: ");
+            int targetNum = 1;
             foreach (Robot robot in robotFleet.robotList)
             {
-                Console.WriteLine(robot.name + " (" + robot.health + " HP)");
+                Console.WriteLine(targetNum + ") " + robot.name + " (" + robot.health + " HP)");
+                targetNum++;
             }
+            
+            bool validInput = int.TryParse(Console.ReadLine(), out int targetChoice);
 
-            string target = Console.ReadLine();
-
-            foreach(Robot robot in robotFleet.robotList)
+            while (!(validInput))
             {
-                if(target.ToLower() == robot.name.ToLower())
-                {
-                    DinoAttack(robot);
-                    break;
-                }
+                Console.WriteLine("Invalid target, try again..\nPlease enter a number according to target.");
+                validInput = int.TryParse(Console.ReadLine(), out targetChoice);
             }
+
+            return targetChoice;
+
+            //string target = Console.ReadLine();
+
+            //foreach(Robot robot in robotFleet.robotList)
+            //{
+            //    if(target.ToLower() == robot.name.ToLower())
+            //    {
+            //        DinoAttack(robot);
+            //        break;
+            //    }
+            //}
         }
 
         public void DinoAttack(Robot robot)

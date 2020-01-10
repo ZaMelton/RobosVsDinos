@@ -31,7 +31,12 @@ namespace DinosaursAndRobots
                     {
                         if(robotFleet.robotList.Count != 0)
                         {
-                            dino.ChooseTarget(robotFleet);
+                            int targetChoice = dino.ChooseTarget(robotFleet);
+                            while (!(robotFleet.robotList.Count >= targetChoice))
+                            {
+                                targetChoice = dino.ChooseTarget(robotFleet);
+                            }
+                            dino.DinoAttack(robotFleet.robotList[targetChoice - 1]);
                             robotFleet.RemoveDeadRobot(robotFleet.robotList);
                         }
                     }
@@ -45,7 +50,12 @@ namespace DinosaursAndRobots
                     {
                         if (dinosaurHerd.dinosaurList.Count != 0)
                         {
-                            robo.ChooseTarget(dinosaurHerd);
+                            int targetChoice = robo.ChooseTarget(dinosaurHerd);
+                            while(!(dinosaurHerd.dinosaurList.Count >= targetChoice))
+                            {
+                                targetChoice = robo.ChooseTarget(dinosaurHerd);
+                            }
+                            robo.RobotAttack(dinosaurHerd.dinosaurList[targetChoice - 1]);
                             dinosaurHerd.RemoveDeadDinosaur(dinosaurHerd.dinosaurList);
                         }
 
