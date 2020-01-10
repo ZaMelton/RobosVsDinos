@@ -20,7 +20,7 @@ namespace DinosaursAndRobots
         {
             Dinosaur tRex = new Dinosaur("T-Rex", 150, 80, 50);
             Dinosaur raptor = new Dinosaur("Raptor", 100, 150, 30);
-            Dinosaur longNeck = new Dinosaur("Long Neck", 300, 100, 100);
+            Dinosaur longNeck = new Dinosaur("Long Neck", 300, 100, 90);
             dinosaurList.Add(tRex);
             dinosaurList.Add(raptor);
             dinosaurList.Add(longNeck);

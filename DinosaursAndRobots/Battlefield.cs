@@ -8,9 +8,9 @@ namespace DinosaursAndRobots
 {
     class Battlefield
     {
-        Fleet robotFleet;
-        Herd dinosaurHerd;
-        Weapon weapon;
+        public Fleet robotFleet;
+        public Herd dinosaurHerd;
+        public Weapon weapon;
 
         public Battlefield()
         {
@@ -32,12 +32,12 @@ namespace DinosaursAndRobots
                         if(robotFleet.robotList.Count != 0)
                         {
                             int targetChoice = dino.ChooseTarget(robotFleet);
-                            while (!(robotFleet.robotList.Count >= targetChoice))
+                            while (!(robotFleet.robotList.Count >= targetChoice))//if user input is out of index range, this while loop kicks in
                             {
-                                targetChoice = dino.ChooseTarget(robotFleet);
+                                targetChoice = dino.ChooseTarget(robotFleet);//asks user to enter a valid input
                             }
                             dino.DinoAttack(robotFleet.robotList[targetChoice - 1]);
-                            robotFleet.RemoveDeadRobot(robotFleet.robotList);
+                            robotFleet.RemoveDeadRobot(robotFleet.robotList);//if a robot dies in combat, the will remove them from list
                         }
                     }
                     Console.ReadLine();
@@ -51,12 +51,12 @@ namespace DinosaursAndRobots
                         if (dinosaurHerd.dinosaurList.Count != 0)
                         {
                             int targetChoice = robo.ChooseTarget(dinosaurHerd);
-                            while(!(dinosaurHerd.dinosaurList.Count >= targetChoice))
+                            while(!(dinosaurHerd.dinosaurList.Count >= targetChoice))//if user input is out of index range, this while loop kicks in
                             {
-                                targetChoice = robo.ChooseTarget(dinosaurHerd);
+                                targetChoice = robo.ChooseTarget(dinosaurHerd);//asks user to enter a valid input
                             }
                             robo.RobotAttack(dinosaurHerd.dinosaurList[targetChoice - 1]);
-                            dinosaurHerd.RemoveDeadDinosaur(dinosaurHerd.dinosaurList);
+                            dinosaurHerd.RemoveDeadDinosaur(dinosaurHerd.dinosaurList);//if a dino dies in combat, the will remove them from list
                         }
 
                     }

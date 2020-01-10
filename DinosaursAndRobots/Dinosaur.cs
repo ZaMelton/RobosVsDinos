@@ -26,14 +26,17 @@ namespace DinosaursAndRobots
         {
             Console.WriteLine("Choose " + type + "'s target: ");
             int targetNum = 1;
+            //display targets and their health
             foreach (Robot robot in robotFleet.robotList)
             {
                 Console.WriteLine(targetNum + ") " + robot.name + " (" + robot.health + " HP)");
                 targetNum++;
             }
             
+            //Asks for user input and immediately tries to parse it to an int
             bool validInput = int.TryParse(Console.ReadLine(), out int targetChoice);
 
+            //if the parse fails, the while loop with run and ask user to try again
             while (!(validInput))
             {
                 Console.WriteLine("Invalid target, try again..\nPlease enter a number according to target.");
@@ -41,31 +44,22 @@ namespace DinosaursAndRobots
             }
 
             return targetChoice;
-
-            //string target = Console.ReadLine();
-
-            //foreach(Robot robot in robotFleet.robotList)
-            //{
-            //    if(target.ToLower() == robot.name.ToLower())
-            //    {
-            //        DinoAttack(robot);
-            //        break;
-            //    }
-            //}
         }
 
         public void DinoAttack(Robot robot)
         {
             Random random = new Random();
             int chanceForHit;
+
             if (type == "Long Neck")
             {
-                chanceForHit = random.Next(1, 4);
+                chanceForHit = random.Next(1, 4);//Makes long necks chance for hit to be lower
             }
             else
             {
-                chanceForHit = random.Next(1, 6);
+                chanceForHit = random.Next(1, 6);//default chance to hit for all other dinos
             }
+
             if(chanceForHit == 1)
             {
                 Console.WriteLine(type + " missed their attack!");
@@ -78,7 +72,7 @@ namespace DinosaursAndRobots
                 Console.WriteLine(type + " attacked " + robot.name + " for " + attackPower + " damage.");
                 if(robot.health < 0)
                 {
-                    robot.health = 0;
+                    robot.health = 0;//stops negative health from being displayed
                 }
                 Console.WriteLine(robot.name + " has " + robot.health + " health left.");
                 Console.WriteLine();

@@ -11,7 +11,7 @@ namespace DinosaursAndRobots
         static void Main(string[] args)
         {
             Battlefield duelingGrounds = new Battlefield();
-
+            
             duelingGrounds.simulateBattlefield();
 
         }
