@@ -24,7 +24,9 @@ namespace DinosaursAndRobots
 
         public int ChooseTarget(Fleet robotFleet)
         {
-            Console.WriteLine("Choose " + type + "'s target: ");
+            Console.WriteLine("Choose " + type + "'s (HP " + health + ") target: ");
+
+
             int targetNum = 1;
             //display targets and their health
             foreach (Robot robot in robotFleet.robotList)

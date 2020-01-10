@@ -35,6 +35,14 @@ namespace DinosaursAndRobots
         }
         public void MakeFleet()
         {
+            ///////////////////////////////////////Original make fleet method/////////////////////////////////////////
+            Robot walle = new Robot("WALL-E", 75, 10, 50);
+            Robot pathfinder = new Robot("Pathfinder", 120, 10, 80);
+            Robot ig11 = new Robot("IG-11", 120, 10, 75);
+            robotList.Add(walle);
+            robotList.Add(pathfinder);
+            robotList.Add(ig11);
+
             //////////////////////////////////////Trying to let user choose robot team////////////////////////////////////////
             //Robot walle = new Robot("WALL-E", 100, 10, 50);
             //Robot pathfinder = new Robot("Pathfinder", 100, 10, 80);
@@ -62,14 +70,6 @@ namespace DinosaursAndRobots
             //        }
             //    }
             //}
-
-            ///////////////////////////////////////Original make fleet/////////////////////////////////////////
-            Robot walle = new Robot("WALL-E", 100, 10, 50);
-            Robot pathfinder = new Robot("Pathfinder", 100, 10, 80);
-            Robot ig11 = new Robot("IG-11", 100, 10, 75);
-            robotList.Add(walle);
-            robotList.Add(pathfinder);
-            robotList.Add(ig11);
         }
 
         public void RemoveDeadRobot(List<Robot> robotList)

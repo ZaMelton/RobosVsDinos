@@ -24,7 +24,7 @@ namespace DinosaursAndRobots
 
         public int ChooseTarget(Herd dinosaurHerd)
         {
-            Console.WriteLine("Choose " + name + "'s target: ");
+            Console.WriteLine("Choose " + name + "'s (HP " + health + ")  target: ");
             int targetNum = 1;
             //displays targets
             foreach (Dinosaur dinosaur in dinosaurHerd.dinosaurList)

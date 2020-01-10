@@ -19,7 +19,7 @@ namespace DinosaursAndRobots
         public void MakeHerd()
         {
             Dinosaur tRex = new Dinosaur("T-Rex", 150, 80, 50);
-            Dinosaur raptor = new Dinosaur("Raptor", 100, 150, 30);
+            Dinosaur raptor = new Dinosaur("Raptor", 120, 150, 30);
             Dinosaur longNeck = new Dinosaur("Long Neck", 300, 100, 90);
             dinosaurList.Add(tRex);
             dinosaurList.Add(raptor);

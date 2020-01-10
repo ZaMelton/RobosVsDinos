@@ -70,17 +70,17 @@ namespace DinosaursAndRobots
                     Console.Clear();
                 }
                 roundCount++;
-
-                Console.Clear();
-                if (dinosaurHerd.dinosaurList.Count == 0)
-                {
-                    Console.WriteLine("ROBOTS WIN!!");
-                }
-                else
-                {
-                    Console.WriteLine("DINOSAURS WIN!!");
-                }
             }
+            Console.Clear();
+            if (dinosaurHerd.dinosaurList.Count == 0)
+            {
+                Console.WriteLine("ROBOTS WIN!!");
+            }
+            else
+            {
+                Console.WriteLine("DINOSAURS WIN!!");
+            }
+            Console.ReadLine();
         }
     }
 }
