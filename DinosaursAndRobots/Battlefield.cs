@@ -55,24 +55,31 @@ namespace DinosaursAndRobots
                             {
                                 targetChoice = robo.ChooseTarget(dinosaurHerd);//asks user to enter a valid input
                             }
-                            robo.RobotAttack(dinosaurHerd.dinosaurList[targetChoice - 1]);
+                            
+                            int weaponChoice = robo.ChooseWeapon(robotFleet.weaponList);
+                            while (!(robotFleet.weaponList.Count >= weaponChoice))//same input validation as above, but for weapon choice
+                            {
+                                weaponChoice = robo.ChooseWeapon(robotFleet.weaponList);
+                            }
+
+                            robo.RobotAttack(dinosaurHerd.dinosaurList[targetChoice - 1], robotFleet.weaponList[weaponChoice - 1]);
                             dinosaurHerd.RemoveDeadDinosaur(dinosaurHerd.dinosaurList);//if a dino dies in combat, the will remove them from list
                         }
-
                     }
                     Console.ReadLine();
                     Console.Clear();
                 }
                 roundCount++;
 
-                /////////////////////////////ORIGINAL SEQUENCE///////////////////////////////
-                //dinosaurHerd.dinosaurList[0].ChooseTarget(robotFleet);
-                //robotFleet.CheckFleetCount(robotFleet.robotList);
-                //robotFleet.robotList[0].ChooseTarget(dinosaurHerd);
-                //dinosaurHerd.CheckHerdCount(dinosaurHerd.dinosaurList);
-                //Console.ReadLine();
-                //Console.Clear();
-                /////////////////////////////ORIGINAL SEQUENCE///////////////////////////////
+                Console.Clear();
+                if (dinosaurHerd.dinosaurList.Count == 0)
+                {
+                    Console.WriteLine("ROBOTS WIN!!");
+                }
+                else
+                {
+                    Console.WriteLine("DINOSAURS WIN!!");
+                }
             }
         }
     }

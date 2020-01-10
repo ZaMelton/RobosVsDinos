@@ -15,6 +15,7 @@ namespace DinosaursAndRobots
         public Fleet()
         {
             robotList = new List<Robot>();
+            weaponList = new List<Weapon>();
             MakeFleet();
             MakeWeapons();
         }
@@ -25,13 +26,16 @@ namespace DinosaursAndRobots
             Weapon bow = new Weapon("Bow of Bowness", 50, "bow");
             Weapon claymore = new Weapon("Bringer of Justice", 85, "longsword");
             Weapon rifle = new Weapon("Kraber", 50, "rifle");
+            Weapon fist = new Weapon("Fist", 15, "unarmed");
             weaponList.Add(sword);
             weaponList.Add(bow);
             weaponList.Add(claymore);
             weaponList.Add(rifle);
+            weaponList.Add(fist);
         }
         public void MakeFleet()
         {
+            //////////////////////////////////////Trying to let user choose robot team////////////////////////////////////////
             //Robot walle = new Robot("WALL-E", 100, 10, 50);
             //Robot pathfinder = new Robot("Pathfinder", 100, 10, 80);
             //Robot ig11 = new Robot("IG-11", 100, 10, 75);
@@ -58,6 +62,7 @@ namespace DinosaursAndRobots
             //        }
             //    }
             //}
+
             ///////////////////////////////////////Original make fleet/////////////////////////////////////////
             Robot walle = new Robot("WALL-E", 100, 10, 50);
             Robot pathfinder = new Robot("Pathfinder", 100, 10, 80);
