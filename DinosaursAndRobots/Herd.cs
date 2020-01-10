@@ -26,26 +26,16 @@ namespace DinosaursAndRobots
             dinosaurList.Add(longNeck);
         }
 
-        public int CheckHerdCount(List<Dinosaur> dinosaurList)
+        public void RemoveDeadDinosaur(List<Dinosaur> dinosaurList)
         {
-            foreach(Dinosaur dinosaur in dinosaurList)
+            foreach (Dinosaur dinosaur in dinosaurList)
             {
                 if (dinosaur.health <= 0)
                 {
-                    RemoveDeadDinosaur(dinosaur);
+                    dinosaurList.Remove(dinosaur);
                     break;
                 }
             }
-            if (dinosaurList.Count() == 0)
-            {
-                return 0;
-            }
-            return dinosaurList.Count();
-        }
-
-        public void RemoveDeadDinosaur(Dinosaur dinosaur)
-        {
-            dinosaurList.Remove(dinosaur);
         }
     }
 }

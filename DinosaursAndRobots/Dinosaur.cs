@@ -30,7 +30,7 @@ namespace DinosaursAndRobots
             }
 
             string target = Console.ReadLine();
-            
+
             foreach(Robot robot in robotFleet.robotList)
             {
                 if(target.ToLower() == robot.name.ToLower())
@@ -56,16 +56,19 @@ namespace DinosaursAndRobots
             if(chanceForHit == 1)
             {
                 Console.WriteLine(type + " missed their attack!");
+                Console.WriteLine();
             }
             else
             {
                 robot.health -= attackPower;
+                Console.WriteLine();
                 Console.WriteLine(type + " attacked " + robot.name + " for " + attackPower + " damage.");
                 if(robot.health < 0)
                 {
                     robot.health = 0;
                 }
                 Console.WriteLine(robot.name + " has " + robot.health + " health left.");
+                Console.WriteLine();
             }
         }
 

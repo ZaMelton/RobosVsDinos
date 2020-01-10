@@ -49,10 +49,12 @@ namespace DinosaursAndRobots
             if(chanceForHit == 1)
             {
                 Console.WriteLine(name + " missed their attack!");
+                Console.WriteLine();
             }
             else
             {
                 dinosaur.health -= attackPower;
+                Console.WriteLine();
                 Console.WriteLine(name + " attacked " + dinosaur.type + " for " + attackPower + " damage.");
 
                 if(dinosaur.health < 0)
@@ -60,6 +62,7 @@ namespace DinosaursAndRobots
                     dinosaur.health = 0;
                 }
                 Console.WriteLine(dinosaur.type + " has " + dinosaur.health + " health left.");
+                Console.WriteLine();
             }
         }
     }

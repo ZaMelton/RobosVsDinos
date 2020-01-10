@@ -20,33 +20,40 @@ namespace DinosaursAndRobots
 
         public void simulateBattlefield()
         {
-            //unecessary stuff in while loop???
-            //could just use dinosaurHerd.dinosaurList.Count()???
-            //Could I then remove the method???
-            while(dinosaurHerd.CheckHerdCount(dinosaurHerd.dinosaurList) != 0 && robotFleet.CheckFleetCount(robotFleet.robotList) != 0)
+            int roundCount = 1;
+            while(dinosaurHerd.dinosaurList.Count != 0 && robotFleet.robotList.Count != 0)
             {
-                if(dinosaurHerd.CheckHerdCount(dinosaurHerd.dinosaurList) != 0)
+                Console.WriteLine("Round: " + roundCount);
+                Console.WriteLine();
+                if(robotFleet.robotList.Count != 0)
                 {
                     foreach (Dinosaur dino in dinosaurHerd.dinosaurList)
                     {
-                        dino.ChooseTarget(robotFleet);
-                        robotFleet.CheckFleetCount(robotFleet.robotList);
+                        if(robotFleet.robotList.Count != 0)
+                        {
+                            dino.ChooseTarget(robotFleet);
+                            robotFleet.RemoveDeadRobot(robotFleet.robotList);
+                        }
                     }
                     Console.ReadLine();
                     Console.Clear();
                 }
 
-                if(robotFleet.CheckFleetCount(robotFleet.robotList) != 0)
+                if(dinosaurHerd.dinosaurList.Count != 0)
                 {
                     foreach (Robot robo in robotFleet.robotList)
                     {
-                        robo.ChooseTarget(dinosaurHerd);
-                        dinosaurHerd.CheckHerdCount(dinosaurHerd.dinosaurList);
+                        if (dinosaurHerd.dinosaurList.Count != 0)
+                        {
+                            robo.ChooseTarget(dinosaurHerd);
+                            dinosaurHerd.RemoveDeadDinosaur(dinosaurHerd.dinosaurList);
+                        }
+
                     }
                     Console.ReadLine();
                     Console.Clear();
                 }
-
+                roundCount++;
 
                 /////////////////////////////ORIGINAL SEQUENCE///////////////////////////////
                 //dinosaurHerd.dinosaurList[0].ChooseTarget(robotFleet);

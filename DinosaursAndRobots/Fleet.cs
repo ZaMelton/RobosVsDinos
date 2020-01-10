@@ -29,26 +29,16 @@ namespace DinosaursAndRobots
             robotList.Add(ig11);
         }
 
-        public int CheckFleetCount(List<Robot> robotList)
+        public void RemoveDeadRobot(List<Robot> robotList)
         {
-            foreach(Robot robot in robotList)
+            foreach (Robot robo in robotList)
             {
-                if (robot.health <= 0)
+                if (robo.health <= 0)
                 {
-                    RemoveDeadRobot(robot);
+                    robotList.Remove(robo);
                     break;
                 }
             }
-            if(robotList.Count() == 0)
-            {
-                return 0;
-            }
-            return robotList.Count();
-        }
-
-        public void RemoveDeadRobot(Robot robot)
-        {
-            robotList.Remove(robot);
         }
 
         //Weapon sword = new Weapon("Rusty Blade", 10, "sword");
