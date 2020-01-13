@@ -12,7 +12,6 @@ namespace DinosaursAndRobots
         public int health;
         public int stamina;
         public int attackPower;
-        public AttackType attackType;
 
         public Dinosaur(string type, int health, int stamina, int attackPower)
         {
@@ -38,7 +37,7 @@ namespace DinosaursAndRobots
             //Asks for user input and immediately tries to parse it to an int
             bool validInput = int.TryParse(Console.ReadLine(), out int targetChoice);
 
-            //if the parse fails, the while loop with run and ask user to try again
+            //if the parse fails, the while loop will run and ask user to try again
             while (!(validInput))
             {
                 Console.WriteLine("Invalid target, try again..\nPlease enter a number according to target.");

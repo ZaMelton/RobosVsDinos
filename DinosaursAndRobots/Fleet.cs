@@ -10,7 +10,6 @@ namespace DinosaursAndRobots
     {
         public List<Robot> robotList;
         public List<Weapon> weaponList;
-        int maxNumOfRobots = 3;
 
         public Fleet()
         {
@@ -35,41 +34,12 @@ namespace DinosaursAndRobots
         }
         public void MakeFleet()
         {
-            ///////////////////////////////////////Original make fleet method/////////////////////////////////////////
             Robot walle = new Robot("WALL-E", 75, 10, 50);
             Robot pathfinder = new Robot("Pathfinder", 120, 10, 80);
             Robot ig11 = new Robot("IG-11", 120, 10, 75);
             robotList.Add(walle);
             robotList.Add(pathfinder);
             robotList.Add(ig11);
-
-            //////////////////////////////////////Trying to let user choose robot team////////////////////////////////////////
-            //Robot walle = new Robot("WALL-E", 100, 10, 50);
-            //Robot pathfinder = new Robot("Pathfinder", 100, 10, 80);
-            //Robot ig11 = new Robot("IG-11", 100, 10, 75);
-            //Robot c3po = new Robot("C-3PO", 25, 10, 2);
-            //Robot goddard = new Robot("Goddard", 50, 10, 215);
-            //Robot starscream = new Robot("Starscream", 300, 10, 90);
-
-            //Console.WriteLine("What robots do you want on your team?");
-            //Console.WriteLine();
-            //Console.WriteLine(walle.name + "\n" + pathfinder.name + "\n" + ig11.name + "\n" + c3po.name + "\n" + goddard.name + "\n" + starscream.name);
-            //Console.WriteLine();
-            //for (int i = 0; i < maxNumOfRobots; i++)
-            //{
-            //    Console.WriteLine("Please type the name of the robot you would like to add (case doesn't matter)");
-
-
-            //    string robotChoice = Console.ReadLine().ToLower();
-
-            //    foreach(Robot robo in robotList)
-            //    {
-            //        if (robotChoice == robo.name)
-            //        {
-            //            robotList.Add(robo);
-            //        }
-            //    }
-            //}
         }
 
         public void RemoveDeadRobot(List<Robot> robotList)
@@ -83,9 +53,5 @@ namespace DinosaursAndRobots
                 }
             }
         }
-
-        //Weapon sword = new Weapon("Rusty Blade", 10, "sword");
-        //Weapon bow = new Weapon("Rusty Blade", 20, "bow");
-        //Weapon claymore = new Weapon("Bringer of Justice", 50, "longsword");
     }
 }
